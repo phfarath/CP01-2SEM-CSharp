@@ -1,8 +1,8 @@
-TextProcessor — Contador de Linhas e Palavras 
+# TextProcessor — Contador de Linhas e Palavras 
 
 Aplicativo de console que permite selecionar arquivos .txt em uma pasta e processá-los de forma assíncrona e paralela, contando linhas e palavras de cada arquivo. Ao final, gera um relatório consolidado em TXT e CSV.
 
-✨ Recursos
+## ✨ Recursos
 
 Leitura streaming (linha a linha) → baixo uso de memória
 Contagem de palavras com qualquer whitespace (espaço, tab, quebras de linha)
@@ -13,7 +13,7 @@ Log de erros por arquivo (sem interromper os demais)
 Cancelamento por Ctrl + C
 
 
-🧭 Uso passo a passo
+## 🧭 Uso passo a passo
 
 Informe o diretório onde estão os .txt.
 O app lista os arquivos encontrados com índices.
@@ -22,8 +22,9 @@ Acompanhe o progresso no console.
 Ao finalizar, confira os relatórios na subpasta export do diretório selecionado.
 Cancelar durante a execução: Ctrl + C.
 
-📄 Formato dos relatórios
+## 📄 Formato dos relatórios
 TXT (amigável)
+
 === Relatório de Processamento ===
 Diretório: C:\Docs
 Arquivos processados: 4
@@ -48,7 +49,7 @@ TOTAL;210;1465
 
 📌 O separador é ; (pró-locale). Se preferir ,, altere facilmente no código.
 
-🔧 Configuração & Personalização
+## 🔧 Configuração & Personalização
 
 Profundidade da busca: troque SearchOption.TopDirectoryOnly por AllDirectories se quiser incluir subpastas.
 Grau de paralelismo: altere MaxDegreeOfParallelism se desejar limitar/aumentar threads.
@@ -56,17 +57,18 @@ Extensão filtrada: por padrão, *.txt. Mude o padrão para outros formatos.
 Separador do CSV: ajuste a função que monta o CSV.
 Regras de contagem: a função CountWords considera transições entre whitespace e não-whitespace. Adapte se precisar de regras específicas (ex.: hifens, línguas aglutinativas etc.).
 
-🛡️ Tratamento de erros & encoding
+## 🛡️ Tratamento de erros & encoding
 
 Cada arquivo é processado com try/catch isolado → erros são listados no relatório, sem parar o lote.
 StreamReader com detecção de BOM automática (UTF-8/UTF-16). Para encodings legados, troque o StreamReader por um com Encoding específico, se necessário.
 
-🧠 Notas de implementação
+## 🧠 Notas de implementação
 
 A leitura linha a linha evita carregar o arquivo inteiro na memória, ideal para arquivos grandes.
 A contagem de palavras usa um scanner (estado dentro/fora de “palavra”) com char.IsWhiteSpace.
 
-🧪 Exemplo (sessão do console)
+## 🧪 Exemplo (sessão do console)
+
 === Processador de Arquivos de Texto (NET 8) ===
 
 Informe o diretório onde estão os arquivos .txt: C:\Docs
@@ -87,11 +89,11 @@ Processamento concluído.
 Relatório TXT: C:\Docs\export\relatorio_20250902_201511.txt
 Relatório CSV: C:\Docs\export\relatorio_20250902_201511.csv
 
-📦 Estrutura sugerida
+## 📦 Estrutura sugerida
 TextProcessor/
   ├─ Program.cs
   └─ README.md
 
-📋 Licença
+## 📋 Licença
 
 Defina a licença de sua preferência (MIT, Apache-2.0, etc.).
